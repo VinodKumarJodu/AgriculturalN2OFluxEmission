@@ -13,6 +13,7 @@ with st.form('prediction_form'):
     st.header('Enter the Deciding Factors:')
 
     year = st.slider('Year: ',2002,2017, value=2002, format='%d')
+    experimnet = st.selectbox('Experiment Value',('BCSE_KBS', 'MCSE-T2', 'Arlington WI'))
     month = st.slider("Month: ", 1, 12, value=0, format="%d")
     veg = st.multiselect("Vegetation: ", ["Corn", "GLYMX", "TRIAE"])
     nrate = st.number_input("N_rate: ")
@@ -33,10 +34,13 @@ if submit_val:
     # If submit is pressed == True
     print(veg)
     crop = {"Corn": 1, "GLYMX": 2, "TRIAE": 3}
+    exp_dict = {'BCSE_KBS': 1, 'MCSE-T2': 2, 'Arlington WI': 3}
     veg = crop[veg[0]]
-    attribute = np.array([year, month,
+    experimnet = exp_dict[experimnet]
+    attribute = np.array([year, experimnet, month,
                           veg, nrate, pp2, pp7, airt,
                           daft, dafs, wfps, nh4, no3, clay, som]).reshape(1, -1)
+    print(attribute.shape)
 
     print("attrubutes valid")
 
