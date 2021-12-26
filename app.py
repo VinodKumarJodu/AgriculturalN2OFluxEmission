@@ -46,5 +46,5 @@ if submit_val:
 
     value = predict(attributes=attribute)
 
-    st.header("Here are the results:")
-    st.success(f"The Flux predicted is {value}")
+    st.header("Prediction Results:")
+    st.success(f"The Flux predicted is {value:.5f}")
