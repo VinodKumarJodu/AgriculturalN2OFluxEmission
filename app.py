@@ -2,7 +2,7 @@ import streamlit as st
 from model import predict
 import numpy as np
 
-st.set_page_config(page_title='Agricultural N@O Flux Prediction App',
+st.set_page_config(page_title='Agricultural N2O Flux Prediction App',
                    page_icon="🔫",
                    layout='wide')
 
